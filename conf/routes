@@ -4,7 +4,15 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
+GET     /                           controllers.OrderController.baskettype
+
+GET     /:baskettype/places			controllers.OrderController.places(baskettype: String)
+
+GET	    /:baskettype/:place/details controllers.OrderController.details(place: String, baskettype: String)
+
+POST	/submit						controllers.OrderController.submit()
+
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)

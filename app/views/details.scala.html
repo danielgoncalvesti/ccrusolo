@@ -1,0 +1,11 @@
+@(baskettype: String, place: String, myForm: Form[DetailsForm.Data])(implicit messages: Messages)
+
+<h1>Detalhes</h1><br />
+
+Você escolheu retirar uma @baskettype em @place
+
+@helper.form(action = routes.OrderController.submit, 'id -> "myForm") {
+    @helper.inputText(myForm("name"))
+    
+    @helper.inputText(myForm("email"))
+}

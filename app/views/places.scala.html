@@ -1,0 +1,14 @@
+@(baskettype: String)
+
+@main("Welcome to Play"){
+
+<h1>@baskettype</h1>
+
+<a href="@routes.OrderController.details("santoandre", baskettype)">Santo André</a><br />
+<a href="@routes.OrderController.details("saobernardo",  baskettype)">São Bernardo do Campo</a>
+
+
+
+
+}
+ 
