@@ -9,6 +9,10 @@ scalaVersion := "2.11.11"
 
 libraryDependencies += filters
 libraryDependencies += "org.scalatestplus.play" %% "scalatestplus-play" % "2.0.0" % Test
+libraryDependencies += jdbc
+libraryDependencies += "com.typesafe.play" %% "anorm" % "2.5.1"
+
+libraryDependencies += "org.xerial" % "sqlite-jdbc" % "3.7.2"
 
 // Adds additional packages into Twirl
 //TwirlKeys.templateImports += "com.example.controllers._"
