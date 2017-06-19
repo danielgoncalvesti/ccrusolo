@@ -1,8 +1,14 @@
-@()
+@(baskets: List[models.dao.Basket])
 
 @main("Welcome to Play") {
-  <h1>Welcome to Play!</h1>
-  <a href="@routes.OrderController.places("cestapequena")">Cesta Pequena</a><br />
-  <a href="@routes.OrderController.places("cestagrande")">Cesta Grande</a> 
-  
+  <h1>Selecione a sua cesta</h1>
+
+  @for(basket <- baskets) {
+    <a href="@routes.OrderController.places(basket.name)">
+     @basket.name<br/>
+    </a>
+    @basket.description<br/>
+    @basket.price<br/>
+    <hr/>
+  }
 }
