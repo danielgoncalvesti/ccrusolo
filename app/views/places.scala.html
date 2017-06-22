@@ -1,13 +1,11 @@
-@(baskettype: String)
+@(urlfriendly: String)
 
 @main("Welcome to Play"){
 
-<h1>@baskettype</h1>
+<h1>@urlfriendly</h1>
 
-<a href="@routes.OrderController.details("santoandre", baskettype)">Santo André</a><br />
-<a href="@routes.OrderController.details("saobernardo",  baskettype)">São Bernardo do Campo</a>
-
-
+<a href="@routes.OrderController.details("santoandre", urlfriendly)">Santo André</a><br />
+<a href="@routes.OrderController.details("saobernardo",  urlfriendly)">São Bernardo do Campo</a>
 
 
 }

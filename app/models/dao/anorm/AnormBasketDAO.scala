@@ -9,8 +9,8 @@ import models.dao.{Basket, BasketDAO}
 
 object AnormBasketDAO extends BasketDAO {
   val basket = {
-    int("id") ~ str("name") ~ str("description") ~ double("price") map {
-      case id~name~description~price => Basket(id, name, description, price)
+    int("id") ~ str("name") ~ str("urlfriendly") ~ str("description") ~ double("price") map {
+      case id~name~urlfriendly~description~price => Basket(id, name, urlfriendly, description, price)
     }
   }
 

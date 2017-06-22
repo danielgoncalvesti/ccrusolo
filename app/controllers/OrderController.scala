@@ -15,7 +15,6 @@ import models.dao._
 class OrderController @Inject() extends Controller {
 
   import DetailsForm._
-  
 
   def baskettype = Action { implicit request =>
     val dao = DAOFactory.basketDAO
@@ -23,13 +22,12 @@ class OrderController @Inject() extends Controller {
     Ok(views.html.baskettype(baskets))
   }
   
-  def places(baskettype: String) = Action { implicit request =>
-    Ok(views.html.places(baskettype))
+  def places(urlfriendly: String) = Action { implicit request =>
+    Ok(views.html.places(urlfriendly))
   }
   
-  def details(places: String, baskettype:String) = Action { implicit request =>
-  
-    Ok(views.html.details(baskettype, places, form))
+  def details(places: String, urlfriendly:String) = Action { implicit request =>
+    Ok(views.html.details(urlfriendly, places, form))
   }
 
   def submit() = Action { implicit request =>
