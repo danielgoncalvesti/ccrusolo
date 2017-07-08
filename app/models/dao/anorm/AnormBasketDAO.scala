@@ -27,4 +27,12 @@ object AnormBasketDAO extends BasketDAO {
   def all() : List[Basket] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM basket").as(basket *)
   }
+
+  def findById(id: Int): Option[Basket] = DB.withConnection { implicit c =>
+    SQL("SELECT * FROM basket WHERE id = {id}").on('id -> id).as(basket singleOpt)
+  }
+
+  def findByName(urlfriendly: String): Option[Basket] = DB.withConnection { implicit c =>
+    SQL("SELECT * FROM basket WHERE urlfriendly = {urlfriendly}").on('urlfriendly -> urlfriendly).as(basket singleOpt)
+  }
 }
