@@ -4,13 +4,14 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                           		controllers.OrderController.baskettype
+GET     /    			 		controllers.OrderController.baskettype
 
-GET     /:urlfriendly/places			controllers.OrderController.places(urlfriendly: String)
+GET     /:urlName/places			controllers.OrderController.places(urlName: String)
 
-GET	/:urlfriendly/:place/details 		controllers.OrderController.details(place: String, urlfriendly: String)
+GET	/:id/:place/details 		controllers.OrderController.details(place: String, id: Int)
 
-POST	/submit					controllers.OrderController.submit()
+POST	/basket					controllers.OrderController.submit
+
 
 
 

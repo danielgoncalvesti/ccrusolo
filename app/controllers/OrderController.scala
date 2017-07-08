@@ -22,15 +22,21 @@ class OrderController @Inject() extends Controller {
     Ok(views.html.baskettype(baskets))
   }
   
-  def places(urlfriendly: String) = Action { implicit request =>
-    Ok(views.html.places(urlfriendly))
+  def places(urlName: String) = Action { implicit request =>
+    val dao = DAOFactory.basketDAO
+    dao.findByName(urlName) match {
+      case Some(basket) => Ok(views.html.places(basket))
+      case None => NotFound("Não existe")
+
+    }
   }
   
-  def details(places: String, urlfriendly:String) = Action { implicit request =>
-    Ok(views.html.details(urlfriendly, places, form))
+  def details(places: String, id: Int) = Action { implicit request =>
+    Ok(views.html.details(id, places, form))
   }
 
-  def submit() = Action { implicit request =>
+  def submit = Action { implicit request =>
     Redirect(routes.OrderController.baskettype)
   }
+
 }

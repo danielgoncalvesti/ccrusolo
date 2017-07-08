@@ -1,11 +1,15 @@
-@(urlfriendly: String, place: String, myForm: Form[DetailsForm.Data])(implicit messages: Messages)
+@(id: Int, place: String, myForm: Form[DetailsForm.Data])(implicit messages: Messages)
 
+@main("Detalhes") {
 <h1>Detalhes</h1><br />
 
-Você escolheu retirar uma @urlfriendly em @place
+Você escolheu retirar uma @id em @place
 
-@helper.form(action = routes.OrderController.submit, 'id -> "myForm") {
+@helper.form(routes.OrderController.submit, 'id -> "myForm") {
     @helper.inputText(myForm("name"))
     
     @helper.inputText(myForm("email"))
+    <input type="submit" value="Enviar">
+}
+
 }
