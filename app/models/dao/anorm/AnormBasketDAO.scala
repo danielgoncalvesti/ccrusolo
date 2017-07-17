@@ -35,4 +35,8 @@ object AnormBasketDAO extends BasketDAO {
   def findByName(urlfriendly: String): Option[Basket] = DB.withConnection { implicit c =>
     SQL("SELECT * FROM basket WHERE urlfriendly = {urlfriendly}").on('urlfriendly -> urlfriendly).as(basket singleOpt)
   }
+
+  def remove(id: Int) = DB.withConnection { implicit c =>
+    SQL("DELETE FROM basket WHERE id = {id}").on('id -> id).executeUpdate()
+  }
 }
