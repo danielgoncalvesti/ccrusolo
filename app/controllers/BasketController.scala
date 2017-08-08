@@ -24,4 +24,14 @@ class BasketController @Inject() extends Controller {
     dao.remove(id)
     Redirect(routes.BasketController.list)
   }
+
+  def newbasket() = Action { implicit request =>
+    Ok(views.html.basket_add())
+  }
+
+  def add() = Action { implicit request =>
+    val dao = DAOFactory.basketDAO
+    dao.create("test", "test", "test", 10.00)
+    Redirect(routes.BasketController.list)
+  }
 }
