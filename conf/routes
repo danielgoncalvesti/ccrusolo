@@ -12,6 +12,13 @@ GET	/:id/:place/details 		controllers.OrderController.details(place: String, id:
 
 POST	/basket					controllers.OrderController.submit
 
+GET	/basket/newbasket				controllers.BasketController.newbasket
+
+POST	/basket/add				controllers.BasketController.add
+
+GET	/basket/list				controllers.BasketController.list
+GET	/basket/remove/:id			controllers.BasketController.remove(id: Int)
+
 
 
 

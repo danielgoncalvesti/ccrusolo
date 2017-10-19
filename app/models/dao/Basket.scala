@@ -10,6 +10,8 @@ trait BasketDAO {
   def findById(id: Int): Option[Basket]
 
   def findByName(urlName: String): Option[Basket]
+
+  def remove(id: Int)
 }
 
 

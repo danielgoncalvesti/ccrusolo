@@ -1,0 +1,14 @@
+@(title: String, baskets: List[models.dao.Basket])
+
+@main("Cadastro de cestas"){
+
+<h1>@title</h1>
+
+<table>
+@baskets.map { basket =>
+  <tr><td>@basket.name</td><td><a href="/basket/remove/@basket.id">x</a></td></tr>
+}
+</table>
+
+}
+ 
