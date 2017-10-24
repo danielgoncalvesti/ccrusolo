@@ -1,11 +1,11 @@
-  @(basket: models.dao.Basket)
+@(basket: models.dao.Basket)
 
 @main("Welcome to Play"){
 
 <h1>@basket.name</h1>
 
-<a href="@routes.OrderController.details("santoandre", basket.id)">Santo André</a><br />
-<a href="@routes.OrderController.details("saobernardo",  basket.id)">São Bernardo do Campo</a>
+<a href="@routes.OrderController.details("santoandre", basket.urlFriendly)">Santo André</a><br />
+<a href="@routes.OrderController.details("saobernardo",  basket.urlFriendly)">São Bernardo do Campo</a>
 
 
 }

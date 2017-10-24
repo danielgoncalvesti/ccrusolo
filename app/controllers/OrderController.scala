@@ -31,8 +31,8 @@ class OrderController @Inject() extends Controller {
     }
   }
   
-  def details(places: String, id: Int) = Action { implicit request =>
-    Ok(views.html.details(id, places, form))
+  def details(places: String, urlFriendly: String) = Action { implicit request =>
+    Ok(views.html.details(urlFriendly, places, form))
   }
 
   def submit = Action { implicit request =>

@@ -4,7 +4,7 @@
   <h1>Selecione a sua cesta</h1>
 
   @for(basket <- baskets) {
-    <a href="@routes.OrderController.places(basket.urlfriendly)">
+    <a href="@routes.OrderController.places(basket.urlFriendly)">
      @basket.name<br/>
     </a>
     @basket.description<br/>

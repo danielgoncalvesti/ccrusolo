@@ -8,11 +8,11 @@ GET     /    			 		controllers.OrderController.baskettype
 
 GET     /:urlName/places			controllers.OrderController.places(urlName: String)
 
-GET	/:id/:place/details 		controllers.OrderController.details(place: String, id: Int)
+GET	    /:urlFriendly/:place/details 		controllers.OrderController.details(place: String, urlFriendly: String)
 
-POST	/basket					controllers.OrderController.submit
+POST	/basket					    controllers.OrderController.submit
 
-GET	/basket/newbasket				controllers.BasketController.newbasket
+GET	    /basket/newbasket				controllers.BasketController.newbasket
 
 POST	/basket/add				controllers.BasketController.add()
 
