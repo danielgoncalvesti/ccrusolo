@@ -13,6 +13,9 @@ import models.dao._
 
 @Singleton
 class BasketController @Inject() extends Controller {
+  
+  import BasketForm._
+
   def list = Action { implicit request =>
     val dao = DAOFactory.basketDAO
     val baskets = dao.all()
@@ -26,12 +29,22 @@ class BasketController @Inject() extends Controller {
   }
 
   def newbasket() = Action { implicit request =>
-    Ok(views.html.basket_add())
+    Ok(views.html.basket_add(basketForm))
   }
 
   def add() = Action { implicit request =>
-    val dao = DAOFactory.basketDAO
-    dao.create("test", "test", "test", 10.00)
-    Redirect(routes.BasketController.list)
+    basketForm.bindFromRequest.fold(
+      formWithErrors => {
+        BadRequest(views.html.basket_add(formWithErrors))
+      },
+      basketData =>{
+        print()
+        val dao = DAOFactory.basketDAO
+        dao.create(basketData.name, basketData.urlFriendly, basketData.description, basketData.price)
+        Redirect(routes.BasketController.list)
+      }
+    )
+
+    
   }
 }
