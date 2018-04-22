@@ -1,13 +1,15 @@
  import models.dao.anorm._
  import play.api._
  import org.h2.jdbc.JdbcSQLException
+ import models.dao._
 
   object Global extends GlobalSettings {
     override def onStart(app: Application) = try {
-     InsertData.insert()
-    } catch {
-      case e: JdbcSQLException => //ignored
-    }
+      DAOFactory.basketDAO.all() match {
+        case Nil  => InsertData.insert()
+        case _ => print("cestas inseridas...")
+      }
+  }
   }
 
   object InsertData {
@@ -18,4 +20,4 @@
           case (name, urlfriendly, description, price) => AnormBasketDAO.create(name, urlfriendly, description, price)
         }
     }
- } 
+ }

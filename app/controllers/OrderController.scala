@@ -21,7 +21,7 @@ class OrderController @Inject() extends Controller {
     val baskets = dao.all()
     Ok(views.html.baskettype(baskets))
   }
-  
+
   def places(urlName: String) = Action { implicit request =>
     val dao = DAOFactory.basketDAO
     dao.findByName(urlName) match {
@@ -30,12 +30,13 @@ class OrderController @Inject() extends Controller {
 
     }
   }
-  
+
   def details(places: String, urlFriendly: String) = Action { implicit request =>
     Ok(views.html.details(urlFriendly, places, form))
   }
 
   def submit = Action { implicit request =>
+
     Redirect(routes.OrderController.baskettype)
   }
 

@@ -4,20 +4,20 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /    			 		controllers.OrderController.baskettype
+GET   /    			 		                  controllers.OrderController.baskettype
 
-GET     /:urlName/places			controllers.OrderController.places(urlName: String)
+GET   /:urlName/places			          controllers.OrderController.places(urlName: String)
 
-GET	    /:urlFriendly/:place/details 		controllers.OrderController.details(place: String, urlFriendly: String)
+GET	  /:urlFriendly/:place/details 		controllers.OrderController.details(place: String, urlFriendly: String)
 
-POST	/basket					    controllers.OrderController.submit
+POST	/basket					                controllers.OrderController.submit
 
-GET	    /basket/newbasket				controllers.BasketController.newbasket
+GET	  /basket/newbasket				        controllers.BasketController.newbasket
 
-POST	/basket/add				controllers.BasketController.add()
+POST	/basket/add				              controllers.BasketController.add()
 
-GET	/basket/list				controllers.BasketController.list
-GET	/basket/remove/:id			controllers.BasketController.remove(id: Int)
+GET	  /basket/list				            controllers.BasketController.list
+GET	  /basket/remove/:id			        controllers.BasketController.remove(id: Int)
 
 
 
