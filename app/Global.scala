@@ -9,7 +9,7 @@
         case Nil  => InsertData.insert()
         case _ => print("cestas inseridas...")
       }
-  }
+    }
   }
 
   object InsertData {

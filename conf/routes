@@ -10,7 +10,8 @@ GET   /:urlName/places			          controllers.OrderController.places(urlName: S
 
 GET	  /:urlFriendly/:place/details 		controllers.OrderController.details(place: String, urlFriendly: String)
 
-POST	/basket					                controllers.OrderController.submit
+POST	/basket					                controllers.OrderController.submit(place: String, urlFriendly: String)
+
 
 GET	  /basket/newbasket				        controllers.BasketController.newbasket
 

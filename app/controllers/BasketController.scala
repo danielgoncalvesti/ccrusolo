@@ -13,7 +13,7 @@ import models.dao._
 
 @Singleton
 class BasketController @Inject() extends Controller {
-  
+
   import BasketForm._
 
   def list = Action { implicit request =>
@@ -45,6 +45,6 @@ class BasketController @Inject() extends Controller {
       }
     )
 
-    
+
   }
 }
