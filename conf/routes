@@ -12,13 +12,16 @@ GET	  /:urlFriendly/:place/details 		controllers.OrderController.details(place: 
 
 POST	/basket					                controllers.OrderController.submit(place: String, urlFriendly: String)
 
-
 GET	  /basket/newbasket				        controllers.BasketController.newbasket
 
 POST	/basket/add				              controllers.BasketController.add()
 
 GET	  /basket/list				            controllers.BasketController.list
 GET	  /basket/remove/:id			        controllers.BasketController.remove(id: Int)
+
+GET   /order/list                     controllers.OrderController.orderList
+
+
 
 
 

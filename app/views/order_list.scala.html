@@ -1,0 +1,25 @@
+@(orders : List[models.dao.Order])
+
+@main("Lista de Ordem"){
+
+<table>
+  <tr>
+    <th>Nome</th>
+    <th>Retirar em</th>
+    <th>Tipo de Cesta</th>
+    <th>Email</th>
+  </tr>
+
+@orders.map { order =>
+  <tr>
+    <td>@order.name</td>
+    <td>@order.place</td>
+    <td>@order.urlFriendly</td>
+    <td>@order.email</td>
+  </tr>
+}
+
+</table>
+
+}
+

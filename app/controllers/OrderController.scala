@@ -35,13 +35,19 @@ class OrderController @Inject() extends Controller {
     Ok(views.html.details(urlFriendly, places, newForm))
   }
 
+  def orderList = Action { implicit request =>
+    val dao = DAOFactory.orderDAO
+    val orders = dao.all
+    Ok(views.html.order_list(orders))
+  }
+
   def submit(places: String, urlFriendly: String) = Action { implicit request =>
     form.bindFromRequest.fold(
       formWithErrors => {
         BadRequest(views.html.details(urlFriendly, places,formWithErrors))
       },
       orderData =>{
-//      print()
+        //print()
         val dao = DAOFactory.orderDAO
         dao.create(orderData.place, orderData.urlFriendly, orderData.name, orderData.email)
         Redirect(routes.OrderController.baskettype)
